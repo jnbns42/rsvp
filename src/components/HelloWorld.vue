@@ -1,17 +1,23 @@
 <script setup>
-
+  import { ref, onMounted } from 'vue'
+  let loaded = ref(false);
+  onMounted(() => {
+    loaded.value = true;
+  })
 </script>
 
 <template>
-  <div class="container">
-    <img src="../assets/header.png" class="title" alt="Kirby and Jonathan" />
-    <h1><img src="../assets/title2.png" class="title" alt="Kirby and Jonathan" /></h1>
-    <h2>Invite you to their wedding</h2>
-    <h2>12pm Tuesday November 1st, 2022</h2>
-    <p>
-      Ness Botanic Gardens, Neston Rd, Little Neston, Ness CH64 4AY
-    </p>
-  </div>
+  <Transition>
+    <div v-if="loaded" class="container">
+      <img src="../assets/header.png" class="title" alt="Kirby and Jonathan" />
+      <h1><img src="../assets/title2.png" class="title" alt="Kirby and Jonathan" /></h1>
+      <h2>Invite you to their wedding</h2>
+      <h2>12pm Tuesday November 1st, 2022</h2>
+      <p>
+        Ness Botanic Gardens, Neston Rd, Little Neston, Ness CH64 4AY
+      </p>
+    </div>
+  </Transition>
 </template>
 
 <style scoped>
@@ -35,5 +41,15 @@
   .container {
     position: relative;
     
+  }
+
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 1.75s ease;
+  }
+
+  .v-enter-from,
+  .v-leave-to {
+    opacity: 0;
   }
 </style>
