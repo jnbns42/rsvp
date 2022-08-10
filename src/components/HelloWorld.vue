@@ -3,9 +3,9 @@
 </script>
 
 <template>
-  <div>
-    <img src="../assets/header.png" class="header" alt="" />
-    <h1><img src="../assets/title.svg" class="title" alt="Kirby and Jonathan" /></h1>
+  <div class="container">
+    <img src="../assets/header.png" class="title" alt="Kirby and Jonathan" />
+    <h1><img src="../assets/title2.png" class="title" alt="Kirby and Jonathan" /></h1>
     <h2>Invite you to their wedding</h2>
     <h2>12pm Tuesday November 1st, 2022</h2>
     <p>
@@ -16,21 +16,24 @@
 
 <style scoped>
   .header {
-    width: 70vw;
-    height: 50vh;
-    object-fit: cover
+    width:100%;
+    height: 80vh;
+    object-fit: contain
   }
   .title {
-    width: 80vw;
-    height: 10vh;
-    object-fit: cover;
+    width: 100%;
+    max-width: 500px;
   }
   h2 {
     text-transform: uppercase;
     font-size: 1.25rem;
-    line-height: 1rem;
   }
+
   h2 + h2 {
     margin-bottom: 40px; 
+  }
+  .container {
+    position: relative;
+    
   }
 </style>
