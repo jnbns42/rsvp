@@ -1,40 +1,36 @@
 <script setup>
-import { ref } from 'vue'
 
-defineProps({
-  msg: String
-})
-
-const count = ref(0)
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
+  <div>
+    <img src="../assets/header.png" class="header" alt="" />
+    <h1><img src="../assets/title.svg" class="title" alt="Kirby and Jonathan" /></h1>
+    <h2>Invite you to their wedding</h2>
+    <h2>12pm Tuesday November 1st, 2022</h2>
     <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
+      Ness Botanic Gardens, Neston Rd, Little Neston, Ness CH64 4AY
     </p>
   </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Install
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
 <style scoped>
-.read-the-docs {
-  color: #888;
-}
+  .header {
+    width: 70vw;
+    height: 50vh;
+    object-fit: cover
+  }
+  .title {
+    width: 80vw;
+    height: 10vh;
+    object-fit: cover;
+  }
+  h2 {
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    line-height: 1rem;
+  }
+  h2 + h2 {
+    margin-bottom: 40px; 
+  }
 </style>
