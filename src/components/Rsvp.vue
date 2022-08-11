@@ -32,7 +32,7 @@ const handleSubmit = () => {
   fetch(action, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encode(formData),
+    body: encode({"form-name": "rsvp",...this.form}),
   })
     .then(() => console.log("Form successfully submitted"))
     .catch((error) => alert(error));
