@@ -2,27 +2,17 @@
   import { ref, onMounted, reactive } from 'vue'
   let loaded = ref(false);
     
-    const email = ref('');
-    const name = ref('');
-    const partnerName = ref('');
-    const childrenName = ref('');
-    const attending = ref('');
-    const sandwich = ref('');
-    const partnersSandwich = ref('');
-    const kidsSandwich = ref('');
-    const dietary = ref('');
-
     const form = ref();
     const state = reactive({
-        email: email.value,
-        name: name.value,
-        partnerName: partnerName.value,
-        childrenName: childrenName.value,
-        attending: attending.value,
-        sandwich: sandwich.value,
-        partnersSandwich: partnersSandwich.value,
-        kidsSandwich: kidsSandwich.value,
-        dietary: dietary.value
+        email: '',
+        name: '',
+        partnerName: '',
+        childrenName: '',
+        attending: '',
+        sandwich: '',
+        partnersSandwich: '',
+        kidsSandwich: '',
+        dietary: ''
     });
 
   onMounted(() => {
@@ -48,7 +38,7 @@ const handleSubmit = (data) => {
   fetch(action, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encode({"form-name": "rsvp", ...state}),
+    body: new URLSearchParams({"form-name": "rsvp", ...state}),
   })
     .then(() => console.log("Form successfully submitted"))
     .catch((error) => alert(error));
