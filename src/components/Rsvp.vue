@@ -56,7 +56,7 @@ const handleSubmit = (data) => {
         <div v-if="loaded" class="container">
             <h1>RSVP</h1>
             
-            <form name="rsvp" id="form" method="post" data-netlify="true" @submit.prevent="handleSubmit">
+            <form name="rsvp" id="form" method="post" netlify @submit.prevent="handleSubmit">
                 <div>
                     <div>
                         <label>Email* <input type="email" name="email" ref="email" required v-model="state.email"/></label>
