@@ -89,6 +89,7 @@ const handleSubmit = (e) => {
                             <textarea name="kids-sandwich"></textarea>
                         </label>
                         <label>Any dietary requirements?<textarea type="text" name="dietary" ></textarea></label>
+                        <input type="submit" value="Submit"/> 
                     </div>
                 </div>
             </form>
