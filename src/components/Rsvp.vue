@@ -4,7 +4,7 @@
     
   const partnerName = ref('');
   const childrenName = ref('');
-
+    const form = ref();
     const state = reactive({
         partnerName: partnerName.value,
         childrenName: childrenName.value
@@ -23,16 +23,17 @@
     };
 
 
-const handleSubmit = () => {
+const handleSubmit = (data) => {
 
   let action = '/';
 
   let myForm = document.getElementById("form");
-  let formData = new FormData(myForm);
+
+  console.log(data);
   fetch(action, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encode({"form-name": "rsvp",...this.form}),
+    body: encode({"form-name": "rsvp", data}),
   })
     .then(() => console.log("Form successfully submitted"))
     .catch((error) => alert(error));
