@@ -2,13 +2,28 @@
   import { ref, onMounted, reactive } from 'vue'
   let loaded = ref(false);
     
-  const partnerName = ref('');
-  const childrenName = ref('');
+    const email = ref('');
+    const name = ref('');
+    const partnerName = ref('');
+    const childrenName = ref('');
+    const attending = ref('');
+    const sandwich = ref('');
+    const partnersSandwich = ref('');
+    const kidsSandwich = ref('');
+    const dietary = ref('');
+
     const form = ref();
     const state = reactive({
+        email: email.value,
+        name: name.value,
         partnerName: partnerName.value,
-        childrenName: childrenName.value
-    })
+        childrenName: childrenName.value,
+        attending: attending.value,
+        sandwich: sandwich.value,
+        partnersSandwich: partnersSandwich.value,
+        kidsSandwich: kidsSandwich.value,
+        dietary: dietary.value
+    });
 
   onMounted(() => {
     loaded.value = true;
@@ -33,7 +48,7 @@ const handleSubmit = (data) => {
   fetch(action, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encode({"form-name": "rsvp", data}),
+    body: encode({"form-name": "rsvp", ...state}),
   })
     .then(() => console.log("Form successfully submitted"))
     .catch((error) => alert(error));
@@ -54,23 +69,23 @@ const handleSubmit = (data) => {
             <form name="rsvp" id="form" method="post" data-netlify="true" @submit.prevent="handleSubmit">
                 <div>
                     <div>
-                        <label>Email* <input type="email" name="email" required /></label>
+                        <label>Email* <input type="email" name="email" ref="email" required /></label>
                     </div>
                     
                     <div>
-                        <label>Your Name* <input type="text" name="name" required /></label>
+                        <label>Your Name* <input type="text" name="name" ref="name" required /></label>
                     </div>
                     <div>
-                        <label>Your Partner's Name <input type="text" name="partner" required v-model="state.partnerName" /></label>
+                        <label>Your Partner's Name <input type="text" name="partner" ref="partnerName" required v-model="state.partnerName" /></label>
                     </div>
                     <div>
-                        <label>Children's Name(s)<input type="text" name="child"  v-model="state.childrenName" /></label>
+                        <label>Children's Name(s)<input type="text" name="child" ref="childrenName"  v-model="state.childrenName" /></label>
                     </div>
 
                     <div>
                         <label>Are you able to attend?*</label><br/>
-                        <label>Yes <input type="radio" name="attending" value="Yes"/></label><br/>
-                        <label>No <input type="radio" name="attending" value="No"/></label>
+                        <label>Yes <input type="radio" name="attending" value="Yes" ref="attending"/></label><br/>
+                        <label>No <input type="radio" name="attending" value="No" ref="attending"/></label>
                     </div>
 
                     <div>
@@ -80,7 +95,7 @@ const handleSubmit = (data) => {
 
                         <label>
                             Your Choice
-                            <select name="sandwich" required>
+                            <select name="sandwich" required ref="sandwich">
                                 <option value="beef">Strips of Beef,Fried Onions and Cheese served in a toasted Baguette</option>
                                 <option value="halloumi">Grilled Halloumi and roasted Red Pepper thick cut toasted sandwich</option>
                                 <option value="club">Club sandwich</option>
@@ -89,7 +104,7 @@ const handleSubmit = (data) => {
                         </label>
                         <label v-if="state.partnerName !== ''">
                             Partner's Choice
-                            <select name="partners-sandwich">
+                            <select name="partners-sandwich" ref="partnersSandwich">
                                 <option value="beef">Strips of Beef,Fried Onions and Cheese served in a toasted Baguette</option>
                                 <option value="halloumi">Grilled Halloumi and roasted Red Pepper thick cut toasted sandwich</option>
                                 <option value="club">Club sandwich</option>
@@ -98,9 +113,9 @@ const handleSubmit = (data) => {
                         </label>
                         <label v-if="state.childrenName !== ''">
                             Kid's Choice (Ham or Cheese Sandwich). Comes with crisps, fruit bag and drink
-                            <textarea name="kids-sandwich"></textarea>
+                            <textarea name="kids-sandwich" ref="kidsSandwich"></textarea>
                         </label>
-                        <label>Any dietary requirements?<textarea type="text" name="dietary" ></textarea></label>
+                        <label>Any dietary requirements?<textarea type="text" name="dietary" ref="dietary"></textarea></label>
                         <input type="submit" value="Submit"/>
                     </div>
                 </div>
