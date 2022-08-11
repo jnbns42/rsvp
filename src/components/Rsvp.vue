@@ -38,7 +38,7 @@ const handleSubmit = (data) => {
   fetch(action, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({"form-name": "rsvp", ...state}),
+    body: new URLSearchParams({"form-name": "rsvp", ...state}).toString(),
   })
     .then(() => console.log("Form successfully submitted"))
     .catch((error) => alert(error));
