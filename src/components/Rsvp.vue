@@ -16,9 +16,11 @@
 
 const handleSubmit = (e) => {
   e.preventDefault();
+  let action = window.location.href.includes("localhost") ? 'https://kirbyjonrsvp.netlify.app/' : '/'
+
   let myForm = document.getElementById("form");
   let formData = new FormData(myForm);
-  fetch("/", {
+  fetch(action, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams(formData).toString(),
@@ -91,7 +93,7 @@ const handleSubmit = (e) => {
                             <textarea name="kids-sandwich"></textarea>
                         </label>
                         <label>Any dietary requirements?<textarea type="text" name="dietary" ></textarea></label>
-                        <button @click="handleSubmit()">Submit</button> 
+                        <button @click="e => handleSubmit(e)">Submit</button> 
                     </div>
                 </div>
             </form>
