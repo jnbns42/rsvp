@@ -23,8 +23,8 @@
     };
 
 
-const handleSubmit = (e) => {
-  e.preventDefault();
+const handleSubmit = () => {
+
   let action = '/';
 
   let myForm = document.getElementById("form");
@@ -50,7 +50,7 @@ const handleSubmit = (e) => {
         <div v-if="loaded" class="container">
             <h1>RSVP</h1>
             
-            <form name="rsvp" id="form" method="post" data-netlify="true">
+            <form name="rsvp" id="form" method="post" data-netlify="true" @submit.prevent="handleSubmit">
                 <div>
                     <div>
                         <label>Email* <input type="email" name="email" required /></label>
@@ -100,7 +100,7 @@ const handleSubmit = (e) => {
                             <textarea name="kids-sandwich"></textarea>
                         </label>
                         <label>Any dietary requirements?<textarea type="text" name="dietary" ></textarea></label>
-                        <button @click="e => handleSubmit(e)">Submit</button> 
+                        <input type="submit" value="Submit"/>
                     </div>
                 </div>
             </form>
