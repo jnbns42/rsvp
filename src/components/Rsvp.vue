@@ -42,8 +42,7 @@ const handleSubmit = (e) => {
             <h1>RSVP</h1>
             
             <form name="rsvp" id="form" method="post"
-    data-netlify="true"
-    data-netlify-honeypot="bot-field">
+    data-netlify="true">
                 <div>
                     <div>
                         <label>Email* <input type="email" name="email" required /></label>
