@@ -39,7 +39,9 @@ const handleSubmit = (e) => {
         <div v-if="loaded" class="container">
             <h1>RSVP</h1>
             
-            <form name="rsvp" id="form" netlify>
+            <form name="rsvp" id="form" method="post"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field">
                 <div>
                     <div>
                         <label>Email* <input type="email" name="email" required /></label>
