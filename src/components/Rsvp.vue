@@ -16,7 +16,7 @@
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  let action = window.location.href.includes("localhost") ? 'https://kirbyjonrsvp.netlify.app/' : '/'
+  let action = '/';
 
   let myForm = document.getElementById("form");
   let formData = new FormData(myForm);
