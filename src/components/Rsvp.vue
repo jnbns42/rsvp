@@ -14,6 +14,15 @@
     loaded.value = true;
   })
 
+const encode = (data) => {
+    return Object.keys(data)
+    .map(
+        key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+    )
+    .join("&");
+},
+
+
 const handleSubmit = (e) => {
   e.preventDefault();
   let action = '/';
@@ -23,7 +32,7 @@ const handleSubmit = (e) => {
   fetch(action, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData).toString(),
+    body: new encode(formData),
   })
     .then(() => console.log("Form successfully submitted"))
     .catch((error) => alert(error));
@@ -41,8 +50,7 @@ const handleSubmit = (e) => {
         <div v-if="loaded" class="container">
             <h1>RSVP</h1>
             
-            <form name="rsvp" id="form" method="post"
-    data-netlify="true">
+            <form name="rsvp" id="form" method="post" data-netlify="true">
                 <div>
                     <div>
                         <label>Email* <input type="email" name="email" required /></label>
