@@ -37,21 +37,23 @@
     let action = '/';
     let myForm = document.getElementById("form");
 
-    console.log(data);
     fetch(action, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({"form-name": "rsvp", ...state}).toString(),
     })
     .then(() => {
+        console.log('submitted');
         if (attending == 'yes') {
             route.push({path: '/thanks'})
         } else if (attending == 'no') {
+
             route.push({path: '/sorry'})
         }
     })
-    .catch(() => {
-            route.push({path: '/error'})
+    .catch((e) => {
+        console.log(e);
+        route.push({path: '/error'})
     });
     };
 
