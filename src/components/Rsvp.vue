@@ -10,13 +10,13 @@
     const state = reactive({
         email: '',
         name: '',
-        partnerName: '',
-        childrenName: '',
+        partnername: '',
+        childrenname: '',
         attending: '',
         song: '',
         sandwich: '',
-        partnersSandwich: '',
-        kidsSandwich: '',
+        partnerssandwich: '',
+        kidssandwich: '',
         dietary: ''
     });
 
@@ -81,10 +81,10 @@
                         <label>Your Name* <input type="text" name="name" ref="name" required v-model="state.name"/></label>
                     </div>
                     <div>
-                        <label>Your Partner's Name <input type="text" name="partner" v-model="state.partnerName" /></label>
+                        <label>Your Partner's Name <input type="text" name="partner" v-model="state.partnername" /></label>
                     </div>
                     <div>
-                        <label>Children's Name(s)<input type="text" name="child" v-model="state.childrenName" /></label>
+                        <label>Children's Name(s)<input type="text" name="child" v-model="state.childrenname" /></label>
                     </div>
 
                     <div>
@@ -118,7 +118,7 @@
                         </label>
                         <label v-if="state.partnerName !== ''">
                             Partner's Choice
-                            <select name="partners-sandwich" :required="state.partnerName !== '' ? true : false" v-model="state.partnersSandwich">
+                            <select name="partners-sandwich" :required="state.partnername !== '' ? true : false" v-model="state.partnerssandwich">
                                 <option value="beef">Strips of Beef, Fried Onions and Cheese served in a toasted Baguette</option>
                                 <option value="halloumi">Grilled Halloumi and roasted Red Pepper thick cut toasted sandwich</option>
                                 <option value="club">Club sandwich</option>
@@ -127,7 +127,7 @@
                         </label>
                         <label v-if="state.childrenName !== ''">
                             Kid's Choice (Ham or Cheese Sandwich). Comes with crisps, fruit bag and drink
-                            <textarea name="kids-sandwich" v-model="state.kidsSandwich" :required="state.childrenName !== '' ? true : false"></textarea>
+                            <textarea name="kids-sandwich" v-model="state.kidssandwich" :required="state.childrenname !== '' ? true : false"></textarea>
                         </label>
                         <label>Any dietary requirements?<textarea type="text" name="dietary" v-model="state.dietary"></textarea></label>
 
