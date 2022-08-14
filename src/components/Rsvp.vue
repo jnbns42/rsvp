@@ -90,8 +90,8 @@
                     <div>
                         <label>Are you able to attend?*</label>
                         <div class="radio-container">
-                            <div><input type="radio" id="yes" name="attending" value="Yes" v-model="state.attending"/><label for="yes">😃 Happily Accept</label></div>
-                            <div><input type="radio" id="no" name="attending" value="No" v-model="state.attending"/><label for="no">😟 Decline With Regrets</label></div>
+                            <div><input type="radio" id="yes" name="attending" value="Yes" v-model="state.attending"/><label for="yes">😃 Yes</label></div>
+                            <div><input type="radio" id="no" name="attending" value="No" v-model="state.attending"/><label for="no">😟 No</label></div>
                         </div>
                     </div>
                     <div>
