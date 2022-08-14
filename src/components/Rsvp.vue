@@ -9,6 +9,7 @@
         partnerName: '',
         childrenName: '',
         attending: '',
+        song: '',
         sandwich: '',
         partnersSandwich: '',
         kidsSandwich: '',
@@ -28,26 +29,24 @@
     };
 
 
-const handleSubmit = (data) => {
+    const handleSubmit = (data) => {
+    let action = '/';
+    let myForm = document.getElementById("form");
 
-  let action = '/';
-
-  let myForm = document.getElementById("form");
-
-  console.log(data);
-  fetch(action, {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({"form-name": "rsvp", ...state}).toString(),
-  })
-    .then(() => console.log("Form successfully submitted"))
-    .catch((error) => alert(error));
-};
+    console.log(data);
+    fetch(action, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({"form-name": "rsvp", ...state}).toString(),
+    })
+        .then(() => console.log("Form successfully submitted"))
+        .catch((error) => alert(error));
+    };
 
 </script>
 
 <template>
-  <Transition>
+
     <div>
         <nav>
             <router-link to="/">Go to Home</router-link>
@@ -66,18 +65,27 @@ const handleSubmit = (data) => {
                         <label>Your Name* <input type="text" name="name" ref="name" required v-model="state.name"/></label>
                     </div>
                     <div>
-                        <label>Your Partner's Name <input type="text" name="partner" required v-model="state.partnerName" /></label>
+                        <label>Your Partner's Name <input type="text" name="partner" v-model="state.partnerName" /></label>
                     </div>
                     <div>
                         <label>Children's Name(s)<input type="text" name="child" v-model="state.childrenName" /></label>
                     </div>
 
                     <div>
-                        <label>Are you able to attend?*</label><br/>
-                        <label>Yes <input type="radio" name="attending" value="Yes" v-model="state.attending"/></label><br/>
-                        <label>No <input type="radio" name="attending" value="No" v-model="state.attending"/></label>
+                        <label>Are you able to attend?*</label>
+                        <div class="radio-container">
+                            <div><input type="radio" id="yes" name="attending" value="Yes" v-model="state.attending"/><label for="yes">😃 Happily Accept</label></div>
+                            <div><input type="radio" id="no" name="attending" value="No" v-model="state.attending"/><label for="no">😟 Decline With Regrets</label></div>
+                        </div>
                     </div>
-
+                    <div>
+                        <h2>Music</h2>
+                        <label>
+                            Add the title and artist name of your favourite love song and we'll add it to our reception playlist!
+                            <input type="text" name="song" ref="song" required v-model="state.song"/>
+                        </label>
+                        
+                    </div>
                     <div>
                         <h2>Food Choices</h2>
                         <p>Please choose your choice of sandwich or soup. Accompanying snacks and salad will be available.</p>
@@ -85,7 +93,7 @@ const handleSubmit = (data) => {
 
                         <label>
                             Your Choice
-                            <select name="sandwich" required v-model="state.sandwich">
+                            <select name="sandwich" :required="state.attending !== 'no'" v-model="state.sandwich">
                                 <option value="beef">Strips of Beef,Fried Onions and Cheese served in a toasted Baguette</option>
                                 <option value="halloumi">Grilled Halloumi and roasted Red Pepper thick cut toasted sandwich</option>
                                 <option value="club">Club sandwich</option>
@@ -94,8 +102,8 @@ const handleSubmit = (data) => {
                         </label>
                         <label v-if="state.partnerName !== ''">
                             Partner's Choice
-                            <select name="partners-sandwich" v-model="state.partnersSandwich">
-                                <option value="beef">Strips of Beef,Fried Onions and Cheese served in a toasted Baguette</option>
+                            <select name="partners-sandwich" :required="state.partnerName !== '' ? true : false" v-model="state.partnersSandwich">
+                                <option value="beef">Strips of Beef, Fried Onions and Cheese served in a toasted Baguette</option>
                                 <option value="halloumi">Grilled Halloumi and roasted Red Pepper thick cut toasted sandwich</option>
                                 <option value="club">Club sandwich</option>
                                 <option value="soup">Spiced Apple and Parsnip soup with crusty Bread Roll</option>
@@ -103,7 +111,7 @@ const handleSubmit = (data) => {
                         </label>
                         <label v-if="state.childrenName !== ''">
                             Kid's Choice (Ham or Cheese Sandwich). Comes with crisps, fruit bag and drink
-                            <textarea name="kids-sandwich" v-model="state.kidsSandwich"></textarea>
+                            <textarea name="kids-sandwich" v-model="state.kidsSandwich" :required="state.childrenName !== '' ? true : false"></textarea>
                         </label>
                         <label>Any dietary requirements?<textarea type="text" name="dietary" v-model="state.dietary"></textarea></label>
                         <input type="submit" value="Submit"/>
@@ -112,30 +120,106 @@ const handleSubmit = (data) => {
             </form>
         </div>
     </div>
-  </Transition>
-
+ 
 </template>
 
 <style scoped>
-nav {
-    margin: 0 0 50px;
-}
-label {
-    margin: 0 0 30px;
-    display: block;
-}
-    form p,
-    label {
-        font-family: Arial, Helvetica, sans-serif;
-        
+    nav {
+        margin: 0 0 50px;
     }
-    
-    select, input[type=text], input[type=email], textarea {
+    label {
+        margin: 0 0 30px;
         display: block;
-        margin: 0 auto;
-        background-color: white;
+        font-weight: bold;
+    }
+    .radio-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .radio-container label {
+        cursor: pointer;
+        padding: 15px;
+        background-color: #faebd7 ;
+        border-radius: 10px;
+        transition: 0.25s ease;
+    }
+    .radio-container label:hover {
+        background-color: #d6be9e;
+    }
+    .radio-container input:checked + label {
+        background-color: #ab1700;
+        color: white;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    input[type="submit"] {
+        padding: 15px;
+        background-color: #faebd7 ;
+        border-radius: 10px;
+        transition: 0.25s ease;
+        border: none;
         color: black;
+        font-weight: bold;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 600px;
+        margin-top: 30px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #d6be9e;
+    }
+    input[type="submit"]:active {
+        background-color: #d6be9e;
+        background-color: #ab1700;
+        color: white;
+    }
+
+    select, input[type=text], input[type=email] {
+        display: block;
+        margin: 10px auto 0;
+        background-color: white;
+        border: none;
+        border-bottom: 2px dashed black;
+        color: black;
+        padding: 10px 0;
+        width: 100%;
+        max-width: 600px;
+
+        caret-color: #ab1700;
+        font-size: 1rem;
+    }
+
+    textarea {
+        margin: 10px auto 0;
+        border: 2px dashed black;
+        color: black;
+        display: block;
+        background-color: white;
+        width: 100%;
+        height: 150px;
+        max-width: 600px;
         padding: 10px;
+        font-size: 1rem;
+
+    }
+
+    @media screen and (max-width: 767px) {
+        select, input[type=text], input[type=email], textarea {
+           max-width: 300px;
+        }
+    }
+
+    select:focus, input[type=text]:focus, input[type=email]:focus, textarea:focus {
+        outline: none;
+        border-color: #ab1700;
+        background-color: rgb(243, 243, 243);
     }
     .v-enter-active,
     .v-leave-active {

@@ -7,14 +7,14 @@
 </script>
 
 <template>
-  <Transition>
+
     <div v-if="loaded" class="container">
       <div>
         <img src="../assets/header.png" class="title" alt="Kirby and Jonathan" />
         <h1><img src="../assets/title2.png" class="title" alt="Kirby and Jonathan" /></h1>
         <h2>Invite you to their wedding</h2>
         <h2>12pm Tuesday November 1st, 2022</h2>
-        <p>
+        <p class="decorative">
           Ness Botanic Gardens, Neston Rd, Little Neston, Ness CH64 4AY
         </p>
       </div>
@@ -23,8 +23,7 @@
         <router-link to="/rsvp">Info</router-link>
       </nav>
     </div>
-      
-  </Transition>
+
 </template>
 
 <style scoped>
@@ -48,17 +47,5 @@
   .container {
     position: relative;
     
-  }
-
-  .v-enter-active,
-  .v-leave-active {
-    transition: all 1.75s ease;
-  }
-
-  .v-enter-from,
-  .v-leave-to {
-    opacity: 0;
-    transform: translateY(10px);
-
   }
 </style>

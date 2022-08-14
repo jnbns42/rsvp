@@ -4,7 +4,11 @@
 
 <template>
   <div class="appcontainer">
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 </template>
 
@@ -12,5 +16,12 @@
 .appcontainer {
   width: 100%;
   overflow: hidden;
+}
+.fade-enter-active,.fade-leave-active {  
+  transition: all 0.5s ease;
+}
+.fade-enter-from,.fade-leave-to {  
+  opacity: 0;
+  transform: translateY(15px);
 }
 </style>
