@@ -4,11 +4,11 @@ Installing Webfonts
 2. Add this code to your website:
 
 @font-face {
-    font-family: 'NeoBulletin-Trash';
-    src:url('NeoBulletin-Trash.ttf.woff') format('woff'),
-        url('NeoBulletin-Trash.ttf.svg#NeoBulletin-Trash') format('svg'),
-        url('NeoBulletin-Trash.ttf.eot'),
-        url('NeoBulletin-Trash.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-family: 'GNUTypewriter';
+    src:url('GNUTypewriter.ttf.woff') format('woff'),
+        url('GNUTypewriter.ttf.svg#GNUTypewriter') format('svg'),
+        url('GNUTypewriter.ttf.eot'),
+        url('GNUTypewriter.ttf.eot?#iefix') format('embedded-opentype'); 
     font-weight: normal;
     font-style: normal;
 }
@@ -16,7 +16,7 @@ Installing Webfonts
 Add the font name to your CSS styles. For example:
 
 h1 { 
-   font-family: 'NeoBulletin-Trash';
+   font-family: 'GNUTypewriter';
 }  
 
 Troubleshooting Webfonts

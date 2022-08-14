@@ -20,7 +20,7 @@
       </div>
       <nav>
         <router-link to="/rsvp">R.S.V.P</router-link>
-        <router-link to="/rsvp">Info</router-link>
+        <router-link to="/info">Info</router-link>
       </nav>
     </div>
 

@@ -1,7 +1,9 @@
-
 @font-face {
-  font-family: 'NeoBulletin-Trash';
-  src:url('/public/Old-Typewriter.ttf') format('woff');
+  font-family: 'GNUTypewriter';
+  src:url('GNUTypewriter.ttf.woff') format('woff'),
+      url('GNUTypewriter.ttf.svg#GNUTypewriter') format('svg'),
+      url('GNUTypewriter.ttf.eot'),
+      url('GNUTypewriter.ttf.eot?#iefix') format('embedded-opentype'); 
   font-weight: normal;
   font-style: normal;
 }
@@ -40,16 +42,19 @@
 }
 
 h1 {
-  font-family: 'NeoBulletin-Trash', Helvetica, Arial, sans-serif;
+  font-family: 'GNUTypewriter', Helvetica, Arial, sans-serif;
 }
-
+nav {
+  display: flex;
+  justify-content: center;
+}
 h2 {
-  font-family: 'NeoBulletin-Trash', Helvetica, Arial, sans-serif;
+  font-family: 'GNUTypewriter', Helvetica, Arial, sans-serif;
   color:  #ab1700;
 }
 
 .decorative {
-  font-family: 'NeoBulletin-Trash', Helvetica, Arial, sans-serif;
+  font-family: 'GNUTypewriter', Helvetica, Arial, sans-serif;
 }
 
   :root {
@@ -73,6 +78,8 @@ nav a {
   color: white;
   text-decoration: none;
   transition: 0.35s ease;
+  font-family: 'GNUTypewriter', Helvetica, Arial, sans-serif;
+
 }
 
 nav a:first-child {
@@ -81,4 +88,8 @@ nav a:first-child {
 
 nav a:hover {
   opacity: 0.75;
+}
+
+.container {
+  padding-bottom: 10vh;
 }
