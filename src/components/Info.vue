@@ -65,6 +65,7 @@
       transition: 0.35s ease;
       font-family: 'GNUTypewriter', Helvetica, Arial, sans-serif;
       margin-right: 20px;
+      margin-bottom: 20px;
     }
     .button:hover {
       opacity: 0.75;
@@ -99,6 +100,7 @@
       gap: 10px;
       position: relative;
       z-index: 100;
+      flex-wrap: wrap;
     }
 
     .colour-blocks > div {
