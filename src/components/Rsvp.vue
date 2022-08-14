@@ -44,15 +44,17 @@
     })
     .then(() => {
         console.log('submitted');
+        console.log(state);
+
         if (attending == 'yes') {
             route.push({path: '/thanks'})
         } else if (attending == 'no') {
-
             route.push({path: '/sorry'})
         }
     })
     .catch((e) => {
         console.log(e);
+        console.log(state);
         route.push({path: '/error'})
     });
     };
