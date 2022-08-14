@@ -1,7 +1,11 @@
 <script setup>
   import { ref, onMounted, reactive } from 'vue'
-  let loaded = ref(false);
+  import {useRouter} from 'vue-router';
     
+    const route = useRouter();
+
+    let loaded = ref(false);
+
     const form = ref();
     const state = reactive({
         email: '',
@@ -39,8 +43,16 @@
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({"form-name": "rsvp", ...state}).toString(),
     })
-        .then(() => console.log("Form successfully submitted"))
-        .catch((error) => alert(error));
+    .then(() => {
+        if (attending == 'yes') {
+            route.push({path: '/thanks'})
+        } else if (attending == 'no') {
+            route.push({path: '/sorry'})
+        }
+    })
+    .catch(() => {
+            route.push({path: '/error'})
+    });
     };
 
 </script>
