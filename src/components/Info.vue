@@ -22,7 +22,7 @@
   <Transition>
     <div class="details">
         <nav>
-            <router-link to="/">Go to Home</router-link>
+            <router-link to="/">Home</router-link>
             <router-link to="/rsvp">R.S.V.P</router-link>
         </nav>
         <div v-if="loaded" class="container">
@@ -53,9 +53,12 @@
 </template>
 
 <style scoped>
+    nav {
+        margin: 0 0 50px;
+    }
     .button {
       display: inline-block;
-      padding: 20px;
+      padding: 13px;
       background-color: #541f1a;
       color: white;
       text-decoration: none;
@@ -72,6 +75,9 @@
     }
     h1, h2 {
       position: relative;
+    }
+    img {
+      max-width: 100%;
     }
     h2 {
       margin-top: 80px;

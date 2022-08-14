@@ -6,7 +6,7 @@
   <Transition>
     <div class="details">
         <nav>
-            <router-link to="/">Go to Home</router-link>
+            <router-link to="/">Home</router-link>
             <router-link to="/rsvp">R.S.V.P</router-link>
             <router-link to="/info">Info</router-link>
         </nav>
@@ -21,6 +21,9 @@
 </template>
 
 <style scoped>
+    nav {
+        margin: 0 0 50px;
+    }
     .button {
       display: inline-block;
       padding: 20px;

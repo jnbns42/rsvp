@@ -65,12 +65,12 @@
 
     <div>
         <nav>
-            <router-link to="/">Go to Home</router-link>
+            <router-link to="/">Home</router-link>
             <router-link to="/info">Info</router-link>
         </nav>
         <div v-if="loaded" class="container">
             <h1>RSVP</h1>
-            
+
             <form name="rsvp" id="form" method="post" netlify @submit.prevent="handleSubmit">
                 <div>
                     <div>
@@ -130,6 +130,15 @@
                             <textarea name="kids-sandwich" v-model="state.kidsSandwich" :required="state.childrenName !== '' ? true : false"></textarea>
                         </label>
                         <label>Any dietary requirements?<textarea type="text" name="dietary" v-model="state.dietary"></textarea></label>
+
+                        <div class="no-camera">
+                            <img src="../assets/nocamera.png"/>
+                            <div>
+                                <p class="decorative">We encourage photos before and after the ceremony, but not during. We want to share this moment with you!</p>
+                                <p class="decorative">We also ask that you do not share anything on social media until we have made our own announcement. Thank you!</p>
+                            </div>
+                        </div>
+
                         <input type="submit" value="Submit"/>
                     </div>
                 </div>
@@ -140,6 +149,44 @@
 </template>
 
 <style scoped>
+.container {
+    width: 600px;
+    margin: 0 auto;
+}
+    @media screen and (max-width: 767px) {
+        .container {
+            width: 300px;
+        }
+    }
+    .no-camera {
+        display: flex;
+        flex-direction: column;
+        background: antiquewhite;
+        border: 2px dashed #cb6e2b;
+        border-radius: 20px;
+        padding: 20px;
+        margin: 0 auto;
+        align-items: center;
+    }
+
+    .no-camera img {
+        flex: 0 1 60px;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+    }
+
+    @media screen and (min-width: 768px) {
+
+        .no-camera img {
+            flex: 0 1 60px;
+            width: 60px;
+            height: 60px;
+            margin: 0;
+        }
+        
+    }
+
     nav {
         margin: 0 0 50px;
     }
@@ -176,11 +223,11 @@
 
     input[type="submit"] {
         padding: 15px;
-        background-color: #faebd7 ;
+        background-color: #541f1a ;
         border-radius: 10px;
         transition: 0.25s ease;
         border: none;
-        color: black;
+        color: #fff;
         font-weight: bold;
         font-size: 1rem;
         width: 100%;
@@ -189,7 +236,7 @@
         cursor: pointer;
     }
     input[type="submit"]:hover {
-        background-color: #d6be9e;
+        opacity: 0.8;
     }
     input[type="submit"]:active {
         background-color: #d6be9e;
@@ -218,7 +265,7 @@
         color: black;
         display: block;
         background-color: white;
-        width: 100%;
+        width: 95%;
         height: 150px;
         max-width: 600px;
         padding: 10px;

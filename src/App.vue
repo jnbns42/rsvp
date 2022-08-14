@@ -15,7 +15,7 @@
 <style scoped>
 .appcontainer {
   width: 100%;
-  overflow: hidden;
+
 }
 .fade-enter-active,.fade-leave-active {  
   transition: all 0.5s ease;
