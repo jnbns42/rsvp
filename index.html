@@ -28,7 +28,14 @@
           <label>Yes <input type="radio" name="attending" value="Yes" v-model="state.attending"/></label><br/>
           <label>No <input type="radio" name="attending" value="No" v-model="state.attending"/></label>
       </div>
-
+      <div>
+        <h2>Music</h2>
+        <label>
+            Add the title and artist name of your favourite love song and we'll add it to our reception playlist!
+            <input type="text" name="song" ref="song" required v-model="state.song"/>
+        </label>
+        
+        </div>
       <div>
           <h2>Food Choices</h2>
           <p>Please choose your choice of sandwich or soup. Accompanying snacks and salad will be available.</p>
