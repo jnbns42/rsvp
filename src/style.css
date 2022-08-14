@@ -2,10 +2,10 @@
 
 @font-face {
   font-family: 'GNUTypewriter';
-  src:url('GNUTypewriter.ttf.woff') format('woff'),
-      url('GNUTypewriter.ttf.svg#GNUTypewriter') format('svg'),
-      url('GNUTypewriter.ttf.eot'),
-      url('GNUTypewriter.ttf.eot?#iefix') format('embedded-opentype'); 
+  src:url('/GNUTypewriter.ttf.woff') format('woff'),
+      url('/GNUTypewriter.ttf.svg#GNUTypewriter') format('svg'),
+      url('/GNUTypewriter.ttf.eot'),
+      url('/GNUTypewriter.ttf.eot?#iefix') format('embedded-opentype'); 
   font-weight: normal;
   font-style: normal;
 }

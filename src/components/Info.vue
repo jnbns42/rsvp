@@ -27,7 +27,7 @@
         </nav>
         <div v-if="loaded" class="container">
             <h1><img src="../assets/finer.png" alt="The Finer Details..."/></h1>
-            <p class="decorative">Feel free to arrive at the venue any time after 11:30am as pre-ceremony refreshments will be served. The entrance you will need is the one for the rock garden, not the visitor centre (if you park at the visitor centre, you will have a fair walk down to the ceremony space!).</p>
+            <p class="decorative">Feel free to arrive at the venue any time after 11:30am as pre-ceremony refreshments will be served. The entrance you will need is the one for the rock garden, not the visitor centre. If you park at the visitor centre, you will have a fair walk down to the ceremony space!.</p>
             <p class="decorative">This isn't an all day event - following the ceremony, we will be heading up to the Hulme Room (the function room inside of the visitor centre)and sharing lunch, speeches and some quality time with you - our favourite people. The whole day will be finished by 4:30pm.</p>
             
             <p class="decorative">If you need details on how to get to the venue, please see the below links</p>
