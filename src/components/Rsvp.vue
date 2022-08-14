@@ -46,9 +46,9 @@
         console.log('submitted');
         console.log(state);
 
-        if (attending == 'yes') {
+        if (state.attending == 'yes') {
             route.push({path: '/thanks'})
-        } else if (attending == 'no') {
+        } else if (state.attending == 'no') {
             route.push({path: '/sorry'})
         }
     })
