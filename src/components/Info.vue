@@ -27,15 +27,15 @@
         </nav>
         <div v-if="loaded" class="container">
             <h1><img src="../assets/finer.png" alt="The Finer Details..."/></h1>
-            <p class="decorative">Feel free to arrive at the venue any time after 11:30am as pre-ceremony refreshments will be served. The entrance you will need is the one for the rock garden, not the visitor centre. If you park at the visitor centre, you will have a fair walk down to the ceremony space!.</p>
-            <p class="decorative">This isn't an all day event - following the ceremony, we will be heading up to the Hulme Room (the function room inside of the visitor centre)and sharing lunch, speeches and some quality time with you - our favourite people. The whole day will be finished by 4:30pm.</p>
+            <p class="decorative">Feel free to arrive at the venue any time after 11:30am as pre-ceremony refreshments will be served. The entrance you will need is the one for the rock garden, not the visitor centre *if you park at the visitor centre, you will have a fair walk down to the ceremony space!*.</p>
+            <p class="decorative">This isn't an all day event - following the ceremony, we will be heading up to the Hulme Room at the venue and sharing lunch, speeches and some quality time with you - our favourite people. The whole day will be finished by 4:30pm.</p>
             
             <p class="decorative">If you need details on how to get to the venue, please see the below links</p>
             <a class="button" href="https://www.liverpool.ac.uk/ness-gardens/visit,us/getting-here/" target="_blank">Ness Gardens</a>
             <a class="button" href="https://www.google.com/maps/dir//Ness+Botanic+Gardens+Neston+Rd+Little+Neston+Ness+CH64+4AY/@53.2723907,-3.0430234,16z/data=!4m8!4m7!1m0!1m5!1m1!1s0x487ad93e02335a09:0x4bd4bc3c0252fec2!2m2!1d-3.0430234!2d53.2723907" target="_blank">Google Maps</a>
             
             <h2><img src="../assets/dresscode.png" alt="The Finer Details..."/></h2>
-            <p class="decorative">As this is a small affair, we would really like to get our photos looking as special as possible. Therefore,we please ask that everyone incorporates part of our colour scheme in to their outfit.</p>
+            <p class="decorative">As this is a small affair, we would really like to get our photos looking as special as possible. Therefore, we please ask that everyone incorporates part of our colour scheme in to their outfit.</p>
             <div class="colour-blocks">
               <div style="--bg:rgb(126, 0, 35);"></div>
               <div style="--bg:rgb(152, 79, 24);"></div>

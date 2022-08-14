@@ -94,14 +94,7 @@
                             <div><input type="radio" id="no" name="attending" value="No" v-model="state.attending"/><label for="no">😟 No</label></div>
                         </div>
                     </div>
-                    <div>
-                        <h2>Music</h2>
-                        <label>
-                            Add the title and artist name of your favourite love song and we'll add it to our reception playlist!
-                            <input type="text" name="song" ref="song" required v-model="state.song"/>
-                        </label>
-                        
-                    </div>
+                    
                     <div>
                         <h2>Food Choices</h2>
                         <p>Please choose your choice of sandwich or soup. Accompanying snacks and salad will be available.</p>
@@ -110,7 +103,7 @@
                         <label>
                             Your Choice
                             <select name="sandwich" :required="state.attending !== 'no'" v-model="state.sandwich">
-                                <option value="beef">Strips of Beef,Fried Onions and Cheese served in a toasted Baguette</option>
+                                <option value="beef">Strips of Beef, Fried Onions and Cheese served in a toasted Baguette</option>
                                 <option value="halloumi">Grilled Halloumi and roasted Red Pepper thick cut toasted sandwich</option>
                                 <option value="club">Club sandwich</option>
                                 <option value="soup">Spiced Apple and Parsnip soup with crusty Bread Roll</option>
@@ -126,21 +119,32 @@
                             </select>
                         </label>
                         <label v-if="state.childrenName !== ''">
-                            Kid's Choice (Ham or Cheese Sandwich). Comes with crisps, fruit bag and drink
+                            Kid's Choice: A Ham or Cheese Sandwich that comes with crisps, fruit bag and drink.
                             <textarea name="kids-sandwich" v-model="state.kidssandwich" :required="state.childrenname !== '' ? true : false"></textarea>
                         </label>
                         <label>Any dietary requirements?<textarea type="text" name="dietary" v-model="state.dietary"></textarea></label>
 
-                        <div class="no-camera">
-                            <img src="../assets/nocamera.png"/>
-                            <div>
-                                <p class="decorative">We encourage photos before and after the ceremony, but not during. We want to share this moment with you!</p>
-                                <p class="decorative">We also ask that you do not share anything on social media until we have made our own announcement. Thank you!</p>
-                            </div>
-                        </div>
 
-                        <input type="submit" value="Submit"/>
+                        <div>
+                            <h2>Song Request</h2>
+                            <label>
+                                Add the title and artist name of your favourite love song and we'll add it to our reception playlist!
+                                <input type="text" name="song" ref="song" required v-model="state.song"/>
+                            </label>
+                        </div>
                     </div>
+
+                    <div class="no-camera">
+                        <img src="../assets/nocamera.png"/>
+                        <div>
+                            <p class="decorative">We encourage photos before and after the ceremony, but not during. We want to share this moment with you!</p>
+                            <p class="decorative">We also ask that you do not share anything on social media until we have made our own announcement. Thank you!</p>
+                        </div>
+                    </div>
+                
+                    <input type="submit" value="Submit"/>
+
+                    
                 </div>
             </form>
         </div>
