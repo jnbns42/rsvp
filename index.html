@@ -17,10 +17,10 @@
           <label>Your Name* <input type="text" name="name" ref="name" required v-model="state.name"/></label>
       </div>
       <div>
-          <label>Your Partner's Name <input type="text" name="partner" required v-model="state.partnerName" /></label>
+          <label>Your Partner's Name <input type="text" name="partnername" required v-model="state.partnerName" /></label>
       </div>
       <div>
-          <label>Children's Name(s)<input type="text" name="child" v-model="state.childrenName" /></label>
+          <label>Children's Name(s)<input type="text" name="childname" v-model="state.childrenName" /></label>
       </div>
 
       <div>
@@ -52,7 +52,7 @@
           </label>
           <label v-if="state.partnerName !== ''">
               Partner's Choice
-              <select name="partners-sandwich" v-model="state.partnersSandwich">
+              <select name="partnerssandwich" v-model="state.partnersSandwich">
                   <option value="beef">Strips of Beef,Fried Onions and Cheese served in a toasted Baguette</option>
                   <option value="halloumi">Grilled Halloumi and roasted Red Pepper thick cut toasted sandwich</option>
                   <option value="club">Club sandwich</option>
@@ -61,7 +61,7 @@
           </label>
           <label v-if="state.childrenName !== ''">
               Kid's Choice (Ham or Cheese Sandwich). Comes with crisps, fruit bag and drink
-              <textarea name="kids-sandwich" v-model="state.kidsSandwich"></textarea>
+              <textarea name="kidssandwich" v-model="state.kidsSandwich"></textarea>
           </label>
           <label>Any dietary requirements?<textarea type="text" name="dietary" v-model="state.dietary"></textarea></label>
           <input type="submit" value="Submit"/>
