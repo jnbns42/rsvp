@@ -103,9 +103,9 @@
 
     .colour-blocks > div {
       background: var(--bg);
-      border-radius: 50px;
-      height: 50px;
-      width: 50px;
+      border-radius: 70px;
+      height: 70px;
+      width: 70px;
     }
 
     .container {
